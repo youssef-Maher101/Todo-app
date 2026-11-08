@@ -34,7 +34,7 @@ export default function Form({
           {editingId === null ? "Add" : "Update"}
         </button>
       </div>
-      ```jsx
+    
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-2 sm:gap-3 mt-4">
         {/* All */}
@@ -73,7 +73,7 @@ export default function Form({
           Completed
         </button>
       </div>
-      ```
+     
     </div>
   );
 }
