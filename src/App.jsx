@@ -103,6 +103,7 @@ function App() {
           editingId={editingId}
           handleSubmit={handleSubmit}
           setFilter={setFilter}
+          filter={filter}
         />
         <TaskList
           tasks={filterTasks()}

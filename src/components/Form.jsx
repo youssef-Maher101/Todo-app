@@ -4,6 +4,7 @@ export default function Form({
   handleSubmit,
   editingId,
   setFilter,
+  filter,
 }) {
   return (
     <div className="my-5 sm:my-7">
@@ -14,7 +15,7 @@ export default function Form({
 
         {/* Input */}
         <input
-          type="text" 
+          type="text"
           onChange={handleInput}
           value={inputValue}
           placeholder="Add a new task ..."
@@ -33,30 +34,46 @@ export default function Form({
           {editingId === null ? "Add" : "Update"}
         </button>
       </div>
-
+      ```jsx
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-2 sm:gap-3 mt-4">
+        {/* All */}
         <button
           onClick={() => setFilter("all")}
-          className="flex-1 sm:flex-none px-4 sm:px-5 py-2 text-sm sm:text-base rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30 hover:bg-blue-800 hover:text-white transition cursor-pointer hover:opacity-80"
+          className={`flex-1 sm:flex-none px-4 sm:px-5 py-2 text-sm sm:text-base rounded-lg border transition cursor-pointer ${
+            filter === "all"
+              ? "bg-blue-600 text-white border-blue-500"
+              : "bg-blue-600/20 text-blue-400 border-blue-500/30 hover:bg-blue-800 hover:text-white"
+          }`}
         >
           All
         </button>
 
+        {/* Active */}
         <button
           onClick={() => setFilter("Active")}
-          className="flex-1 sm:flex-none px-4 sm:px-5 py-2 text-sm sm:text-base rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30 hover:bg-amber-800 hover:text-white transition cursor-pointer hover:opacity-80"
+          className={`flex-1 sm:flex-none px-4 sm:px-5 py-2 text-sm sm:text-base rounded-lg border transition cursor-pointer ${
+            filter === "Active"
+              ? "bg-amber-500 text-white border-amber-400"
+              : "bg-amber-500/20 text-amber-400 border-amber-500/30 hover:bg-amber-800 hover:text-white"
+          }`}
         >
           Active
         </button>
 
+        {/* Completed */}
         <button
           onClick={() => setFilter("Completed")}
-          className="flex-1 sm:flex-none px-4 sm:px-5 py-2 text-sm sm:text-base rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-800 hover:text-white transition cursor-pointer hover:opacity-80"
+          className={`flex-1 sm:flex-none px-4 sm:px-5 py-2 text-sm sm:text-base rounded-lg border transition cursor-pointer ${
+            filter === "Completed"
+              ? "bg-emerald-600 text-white border-emerald-500"
+              : "bg-emerald-500/20 text-emerald-400 border-emerald-500/30 hover:bg-emerald-800 hover:text-white"
+          }`}
         >
           Completed
         </button>
       </div>
+      ```
     </div>
   );
 }
