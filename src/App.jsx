@@ -84,7 +84,7 @@ function App() {
   function filterTasks() {
     if (filter === "all") {
       return tasks;
-    } else if (filter === "active") {
+    } else if (filter === "Active") {
       return tasks.filter((task) => task.status === false);
     } else {
       return tasks.filter((task) => task.status === true);
